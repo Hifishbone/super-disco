@@ -19,15 +19,8 @@ var saveTasks = function() {
 };
 
 
-
-$(document).ready (function () {
-    var curDay = moment().format('dddd, MMMM Do');
-    $('#currentDay').text(curDay);
-
-    loadTasks();
+var fillInBlocks = function() {
     $.each(tasks, function(hour, description) {
-        console.log(hour, description);
-        // then loop over sub-array
         var timeBlockElement = document.createElement("div");
         timeBlockElement.className = 'row time-block';
         timeBlockElement.setAttribute('id', hour);
@@ -58,7 +51,30 @@ $(document).ready (function () {
         
         $("#timeBlocks").append(timeBlockElement);
     });
+}
 
+
+$(document).ready (function () {
+    var curDay = moment().format('dddd, MMMM Do');
+    $('#currentDay').text(curDay);
+
+    loadTasks();
+    fillInBlocks();
+
+    $(".description").on("click", function() {
+        var text = $(this).text().trim();
+        var textInput = $("<textarea>").addClass(this.className).val(text);
+        $(this).replaceWith(textInput);
+        textInput.trigger("focus");
+    });
+
+    // save buttom pressed
+    $('.oi').on("click", function() {
+        var textarea = $(this).parent().prev();
+        if (textarea.is("textarea")) {
+            var text = textarea.val();
+            tasks[$(this).parent().parent().attr('id')] = text;
+        }
+        saveTasks();
+    });
 })
-
-

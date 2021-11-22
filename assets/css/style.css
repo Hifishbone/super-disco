@@ -23,6 +23,7 @@ textarea{
 
 .description{
   white-space: pre-wrap;
+  text-align: left;
 }
 
 .time-block{
@@ -66,10 +67,12 @@ textarea{
 
   display: flex;
   align-items: center;
-  justify-content: center 
+  justify-content: center;
+
+  font-size: 150%;
 }
 
-.saveBtn i:hover {
-  font-size: 20px;
+.saveBtn .oi:hover {
+  font-size: 150%;
   transition: all .3s ease-in-out;
 }
