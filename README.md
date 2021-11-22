@@ -1,14 +1,15 @@
 # super-disco
 
 ## Purpose
-AS an employee with a busy schedule <br />
-I WANT to add important events to a daily planner <br />
-SO THAT I can manage my time effectively <br />
+A simple calendar app for scheduling your work day.
 
 ## Built With
 * HTML
 * CSS
 * JS
+* JQuery
+* Bootstrap
+* Moment.js
 
 ## Website
 https://hifishbone.github.io/super-disco/
