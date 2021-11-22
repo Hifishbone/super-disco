@@ -16,6 +16,7 @@ var loadTasks = function() {
 
 var saveTasks = function() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
+  console.log(JSON.parse(localStorage.getItem("tasks")));
 };
 
 
@@ -73,6 +74,7 @@ $(document).ready (function () {
         var textarea = $(this).parent().prev();
         if (textarea.is("textarea")) {
             var text = textarea.val();
+            console.log('Saving Text: ' + text);
             tasks[$(this).parent().parent().attr('id')] = text;
         }
         saveTasks();
